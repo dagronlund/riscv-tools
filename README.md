@@ -1,5 +1,3 @@
-riscv-tools [![Build Status](https://travis-ci.org/riscv/riscv-tools.svg?branch=master)](https://travis-ci.org/riscv/riscv-tools)
-===========================================================================
 
 This repository houses a set of RISC-V simulators, compilers, and other
 tools, including the following projects:
@@ -7,7 +5,7 @@ tools, including the following projects:
 * [Spike](https://github.com/riscv/riscv-isa-sim/), the ISA simulator
 * [riscv-tests](https://github.com/riscv/riscv-tests/), a battery of
 ISA-level tests
-* [riscv-opcodes](https://github.com/riscv/riscv-opcodes/), the
+* [riscv-opcodes](https://github.com/dagronlund/riscv-opcodes), the
 enumeration of all RISC-V opcodes executable by the simulator
 * [riscv-pk](https://github.com/riscv/riscv-pk/), which contains `bbl`,
 a boot loader for Linux and similar OS kernels, and `pk`, a proxy kernel that
@@ -34,13 +32,25 @@ these upstream tools, but if it doesn't then the [RISC-V Port of
 OpenEmbedded](https://github.com/riscv/meta-riscv#quick-start) is a
 great place to start!
 
-# <a name="quickstart"></a>Quickstart
 
-	$ git submodule update --init --recursive
-	$ export RISCV=/path/to/install/riscv/toolchain
-	$ ./build.sh
+###  Getting the sources
 
+This repository uses submodules. You need the --recursive option to fetch the submodules automatically
 
+    $ git clone --recursive https://github.com/dagronlund/riscv-tools.git
+
+Alternatively :
+
+    $ git clone https://github.com/dagronlund/riscv-tools.git
+    $ cd riscv-gnu-toolchain
+    $ git submodule update --init --recursive
+
+Then :
+
+	  $ export RISCV=/path/to/install/riscv/toolchain
+	  $ ./build.sh
+
+### Prerequisites
 Ubuntu packages needed:
 
 	$ sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev libusb-1.0-0-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev device-tree-compiler pkg-config libexpat-dev
